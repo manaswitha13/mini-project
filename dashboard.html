@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h1 class="dashboard-title">
+                🚚 RouteX Dashboard
+            </h1>
+
+            <p class="dashboard-subtitle">
+                Welcome, {{ username }}
+            </p>
+        </div>
+
+        <a href="/logout"
+           class="btn btn-danger">
+            Logout
+        </a>
+
+    </div>
+
+    <!-- Flash Messages -->
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+
+                <div class="alert alert-warning">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Analytics Cards -->
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+
+            <div class="stats-card">
+
+                <h2>{{ total_locations }}</h2>
+
+                <p>Total Locations</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="stats-card">
+
+                <h2>{{ total_routes }}</h2>
+
+                <p>Total Routes</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="stats-card">
+
+                <h2>95%</h2>
+
+                <p>Optimization Efficiency</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Route Optimization Card -->
+
+    <div class="glass-card mt-5">
+
+        <h3 class="mb-4">
+            Find Optimal Route
+        </h3>
+
+        <form action="/optimize"
+              method="POST">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">
+                        Source Location
+                    </label>
+
+                    <select
+                        name="source"
+                        class="form-select">
+
+                        {% for location in locations %}
+
+                        <option>
+                            {{ location }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <label class="form-label">
+                        Destination Location
+                    </label>
+
+                    <select
+                        name="destination"
+                        class="form-select">
+
+                        {% for location in locations %}
+
+                        <option>
+                            {{ location }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-primary w-100">
+
+                Optimize Route
+
+            </button>
+
+        </form>
+
+        <div class="text-center mt-4">
+
+            <a href="/history"
+               class="btn btn-outline-light">
+
+                View Route History
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

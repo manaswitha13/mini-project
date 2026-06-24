@@ -1,0 +1,350 @@
+/* ==========================
+   RouteX Professional Theme
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f172a,
+        #1e293b,
+        #334155
+    );
+
+    color:white;
+}
+
+/* ==========================
+   Authentication
+========================== */
+
+.auth-container{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+}
+
+.auth-card{
+
+    width:450px;
+}
+
+.logo{
+
+    font-size:3rem;
+
+    font-weight:700;
+
+    color:#60a5fa;
+}
+
+.tagline{
+
+    color:#cbd5e1;
+
+    margin-top:10px;
+}
+
+/* ==========================
+   Glassmorphism
+========================== */
+
+.glass-card{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    backdrop-filter:
+    blur(14px);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.15
+    );
+
+    border-radius:20px;
+
+    padding:30px;
+
+    box-shadow:
+    0 8px 32px rgba(
+        0,
+        0,
+        0,
+        0.3
+    );
+}
+
+/* ==========================
+   Inputs
+========================== */
+
+.form-control,
+.form-select{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.15
+    );
+
+    color:white;
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    background:
+    rgba(255,255,255,0.12);
+
+    color:white;
+
+    border-color:#60a5fa;
+
+    box-shadow:none;
+}
+
+.form-control::placeholder{
+    color:#d1d5db;
+}
+
+/* Fix dropdown options */
+
+option{
+    color:black;
+}
+
+/* ==========================
+   Buttons
+========================== */
+
+.btn-primary{
+
+    background:#3b82f6;
+
+    border:none;
+
+    transition:0.3s;
+}
+
+.btn-primary:hover{
+
+    background:#2563eb;
+
+    transform:
+    translateY(-2px);
+}
+
+.btn-success{
+
+    background:#22c55e;
+
+    border:none;
+}
+
+.btn-success:hover{
+
+    background:#16a34a;
+}
+
+.btn-danger{
+
+    background:#ef4444;
+
+    border:none;
+}
+
+.btn-danger:hover{
+
+    background:#dc2626;
+}
+
+/* ==========================
+   Dashboard
+========================== */
+
+.dashboard-title{
+
+    font-weight:700;
+}
+
+.dashboard-subtitle{
+
+    color:#cbd5e1;
+}
+
+/* ==========================
+   Statistics Cards
+========================== */
+
+.stats-card{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border-radius:16px;
+
+    padding:25px;
+
+    text-align:center;
+
+    transition:0.3s;
+}
+
+.stats-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 12px 25px rgba(
+        0,
+        0,
+        0,
+        0.25
+    );
+}
+
+.stats-card h2{
+
+    color:#60a5fa;
+
+    font-weight:700;
+}
+
+.stats-card p{
+
+    color:#d1d5db;
+}
+
+/* ==========================
+   Route Box
+========================== */
+
+.route-box{
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border-radius:15px;
+
+    padding:20px;
+
+    text-align:center;
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+/* ==========================
+   Graph Container
+========================== */
+
+#network{
+
+    height:450px;
+
+    border-radius:15px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
+}
+
+/* ==========================
+   Links
+========================== */
+
+.link-custom{
+
+    color:#60a5fa;
+
+    text-decoration:none;
+}
+
+.link-custom:hover{
+
+    color:#93c5fd;
+}
+
+/* ==========================
+   Tables
+========================== */
+
+.table{
+
+    border-radius:15px;
+
+    overflow:hidden;
+}
+
+.table-dark{
+
+    --bs-table-bg:
+    rgba(15,23,42,0.8);
+}
+
+/* ==========================
+   Alerts
+========================== */
+
+.alert{
+
+    border-radius:12px;
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media(max-width:768px){
+
+    .auth-card{
+
+        width:100%;
+    }
+
+    .dashboard-title{
+
+        font-size:1.8rem;
+    }
+
+    .stats-card{
+
+        margin-bottom:15px;
+    }
+}

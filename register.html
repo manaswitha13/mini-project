@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="auth-container">
+
+```
+<div class="glass-card auth-card">
+
+    <div class="text-center">
+
+        <h1 class="logo">
+            🚚 RouteX
+        </h1>
+
+        <p class="tagline">
+            Create Your Account
+        </p>
+
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+
+                <div class="alert alert-warning mt-3">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form
+        action="/register_user"
+        method="POST"
+        class="mt-4">
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Username
+            </label>
+
+            <input
+                type="text"
+                name="username"
+                class="form-control"
+                placeholder="Enter Username"
+                required>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Gmail Address
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="example@gmail.com"
+                pattern="[a-zA-Z0-9._%+-]+@gmail\.com$"
+                title="Only Gmail addresses are allowed"
+                required>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="Create Password"
+                minlength="6"
+                required>
+
+        </div>
+
+        <button
+            type="submit"
+            class="btn btn-success w-100">
+
+            Register
+
+        </button>
+
+    </form>
+
+    <div class="text-center mt-4">
+
+        <p>
+
+            Already have an account?
+
+            <a href="/"
+               class="link-custom">
+
+                Login Here
+
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+{% endblock %}

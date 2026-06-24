@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="glass-card">
+
+        <h1 class="text-center mb-4">
+            Route Optimization Result
+        </h1>
+
+        <!-- Route -->
+
+        <div class="route-box">
+
+            {{ route }}
+
+        </div>
+
+        <!-- Analytics -->
+
+        <div class="row mt-4">
+
+            <div class="col-md-4">
+
+                <div class="stats-card">
+
+                    <h2>{{ distance }}</h2>
+
+                    <p>Distance (KM)</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="stats-card">
+
+                    <h2>{{ estimated_time }}</h2>
+
+                    <p>Estimated Time (Min)</p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="stats-card">
+
+                    <h2>₹{{ fuel_cost }}</h2>
+
+                    <p>Fuel Cost</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Graph Visualization -->
+
+        <div class="mt-5">
+
+            <h3 class="mb-3">
+                Route Visualization
+            </h3>
+
+            <div id="network"></div>
+
+        </div>
+
+        <div class="text-center mt-4">
+
+            <a href="/dashboard"
+               class="btn btn-primary">
+
+                Back To Dashboard
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const nodes = new vis.DataSet([
+
+{% for node in path_nodes %}
+
+{
+    id: "{{ node }}",
+    label: "{{ node }}"
+},
+
+{% endfor %}
+
+]);
+
+const edges = new vis.DataSet([
+
+{% for edge in path_edges %}
+
+{
+    from: "{{ edge[0] }}",
+    to: "{{ edge[1] }}"
+},
+
+{% endfor %}
+
+]);
+
+const container =
+document.getElementById("network");
+
+const data = {
+    nodes: nodes,
+    edges: edges
+};
+
+const options = {
+
+    nodes: {
+        shape: "dot",
+        size: 25,
+        font: {
+            color: "#ffffff",
+            size: 18
+        }
+    },
+
+    edges: {
+        arrows: "to",
+        smooth: true
+    },
+
+    physics: {
+        enabled: true
+    }
+
+};
+
+new vis.Network(
+    container,
+    data,
+    options
+);
+
+</script>
+
+{% endblock %}

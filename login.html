@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="glass-card auth-card">
+
+        <div class="text-center">
+
+            <h1 class="logo">
+                🚚 RouteX
+            </h1>
+
+            <p class="tagline">
+                Smart Delivery Optimization System
+            </p>
+
+        </div>
+
+        <!-- Flash Messages -->
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+
+                    <div class="alert alert-warning mt-3">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form
+            action="/login_user"
+            method="POST"
+            class="mt-4">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    name="username"
+                    class="form-control"
+                    placeholder="Enter Username"
+                    required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Enter Password"
+                    required>
+
+            </div>
+
+            <button
+                type="submit"
+                class="btn btn-primary w-100">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <div class="text-center mt-4">
+
+            <p>
+
+                Don't have an account?
+
+                <a href="/register"
+                   class="link-custom">
+
+                    Register Here
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
